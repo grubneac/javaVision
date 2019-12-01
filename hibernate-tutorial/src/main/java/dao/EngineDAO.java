@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 
 import ru.javavision.model.Engine;
 
-public class EngineDAO implements DAO<Engine, String> {
+public class EngineDAO implements DAO<Engine, Integer> {
 
 	private final SessionFactory factory;
 	
@@ -23,7 +23,7 @@ public class EngineDAO implements DAO<Engine, String> {
 	}
 
 	@Override
-	public Engine read(String key) {
+	public Engine read(Integer key) {
 		try(final Session session = factory.openSession()) {
 			final Engine result = session.find(Engine.class, key);
 	 		return result != null? result: new Engine();

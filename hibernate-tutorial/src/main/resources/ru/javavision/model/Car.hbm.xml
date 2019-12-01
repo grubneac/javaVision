@@ -5,11 +5,15 @@
 
 <hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
 
-    <class name="ru.javavision.model.Engine" table="engines">
+    <class name="ru.javavision.model.Car" table="cars">
         <id name ="id" type = "int" column ="id">
         	<generator class ="identity"/>
         </id>
+        <property name="mark" column="mark"/>
         <property name="model" column="model"/>
-        <property name="power" column="power"/>
+        <many-to-one name= "engine" column ="engine_id"
+        			class = "ru.javavision.model.Engine"
+        			cascade = "save-update" 
+        			/>
     </class>
 </hibernate-mapping>
