@@ -9,11 +9,8 @@
         <id name ="id" type = "int" column ="id">
         	<generator class ="identity"/>
         </id>
+        <property name="cost" column="cost"/>
         <property name="mark" column="mark"/>
-        <property name="model" column="model"/>
-        <many-to-one name= "engine" column ="engine_id"
-        			class = "ru.javavision.model.Engine"
-        			cascade = "save-update" 
-        			/>
+
     </class>
 </hibernate-mapping>

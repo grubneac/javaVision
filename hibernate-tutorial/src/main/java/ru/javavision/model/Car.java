@@ -4,9 +4,21 @@ package ru.javavision.model;
 public class Car {
 	
 	private int id;
+	private Integer cost;
 	private String mark;
-	private String model;
-	private Engine engine;
+	
+	
+	public Car() {
+		super();
+	}
+	
+	public Car(int id, String mark, Integer cost) {
+		super();
+		this.id = id;
+		this.mark = mark;
+		this.cost = cost;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -19,30 +31,23 @@ public class Car {
 	public void setMark(String mark) {
 		this.mark = mark;
 	}
-	public String getModel() {
-		return model;
+	public Integer getcost() {
+		return cost;
 	}
-	public void setModel(String model) {
-		this.model = model;
-	}
-	public Engine getEngine() {
-		return engine;
-	}
-	public void setEngine(Engine engine) {
-		this.engine = engine;
+	public void setCost(Integer cost) {
+		this.cost = cost;
 	}
 	@Override
 	public String toString() {
-		return "Car [id=" + id + ", mark=" + mark + ", model=" + model + ", engine=" + engine + "]";
+		return "Car [id=" + id + ", mark=" + mark + ", cost=" + cost + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((engine == null) ? 0 : engine.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((mark == null) ? 0 : mark.hashCode());
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
+		result = prime * result + ((cost == null) ? 0 : cost.hashCode());
 		return result;
 	}
 	@Override
@@ -54,11 +59,6 @@ public class Car {
 		if (getClass() != obj.getClass())
 			return false;
 		Car other = (Car) obj;
-		if (engine == null) {
-			if (other.engine != null)
-				return false;
-		} else if (!engine.equals(other.engine))
-			return false;
 		if (id != other.id)
 			return false;
 		if (mark == null) {
@@ -66,13 +66,12 @@ public class Car {
 				return false;
 		} else if (!mark.equals(other.mark))
 			return false;
-		if (model == null) {
-			if (other.model != null)
+		if (cost == null) {
+			if (other.cost != null)
 				return false;
-		} else if (!model.equals(other.model))
+		} else if (!cost.equals(other.cost))
 			return false;
 		return true;
 	}
-	
 
 }

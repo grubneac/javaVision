@@ -28,8 +28,6 @@ public class CarDAO implements DAO<Car, Integer> {
 	public Car read(final Integer id) {
 		try(final Session session = factory.openSession()){
 			final Car result = session.get(Car.class, id);
-			
-			if (result != null)Hibernate.initialize(result.getEngine());
 			return result;
 		}
 	}
