@@ -13,39 +13,14 @@ public class EngineDAO implements DAO<Engine, Integer> {
 		this.factory = factory;
 	}
 
-	@Override
-	public void create(Engine entity) {
-		try(final Session session = factory.openSession()) {
-			session.beginTransaction();
-			session.save(entity);
-			session.getTransaction().commit();
-		} 
-	}
 
 	@Override
-	public Engine read(Integer key) {
+	public Engine read(Integer id) {
 		try(final Session session = factory.openSession()) {
-			final Engine result = session.find(Engine.class, key);
-	 		return result != null? result: new Engine();
+			return  session.get(Engine.class, id);
 		}
 	}
 
-	@Override
-	public void update(Engine entity) {
-		try(final Session session = factory.openSession()) {
-			session.beginTransaction();
-			session.update(entity);
-			session.getTransaction().commit();
-		} 		
-	}
 
-	@Override
-	public void delete(Engine entity) {
-		try(final Session session = factory.openSession()) {
-			session.beginTransaction();
-			session.delete(entity);
-			session.getTransaction().commit();
-		} 		
-	}
 
 }

@@ -1,23 +1,20 @@
 package ru.javavision.model;
 
 
-import java.io.Serializable;
 import java.util.Set;
 
-import lombok.*;
 
-@Data
-@ToString
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
 public class Engine {
 	private int id;
 	private String name;
 	private int power;
-	private String carMark;
 	private Set<Car> cars;
 
+	
+	public Engine() {
+		super();
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -36,12 +33,6 @@ public class Engine {
 	public void setPower(int power) {
 		this.power = power;
 	}
-	public String getCarMark() {
-		return carMark;
-	}
-	public void setCarMark(String carMark) {
-		this.carMark = carMark;
-	}
 	public Set<Car> getCars() {
 		return cars;
 	}
@@ -50,8 +41,7 @@ public class Engine {
 	}
 	@Override
 	public String toString() {
-		return "Engine [id=" + id + ", name=" + name + ", power=" + power + ", carMark=" + carMark + ", cars=" + cars
-				+ "]";
+		return "Engine [id=" + id + ", name=" + name + ", power=" + power + "]";
 	}
 
 	

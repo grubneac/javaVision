@@ -11,11 +11,15 @@
         </id>
         <property name="name" column="name"/>
         <property name="power" column="power"/>
-        <property name="carMark" column="car_mark"/>
         
-        <set name ="cars" table ="cars" cascade ="all" fetch= "join">
-        	<key column ="mark" property-ref="carMark" />
-        	<one-to-many class="ru.javavision.model.Car"/>
+        <set name ="cars" table="cars_engines"  inverse ="true">
+        	<key> 
+        		<column name="engine_id" not-null="true" />
+        	</key>
+        	
+        	<many-to-many class="ru.javavision.model.Car">
+        		<column name = "cars_id" not-null="true"/>
+        	</many-to-many>
         </set>
     </class>
 </hibernate-mapping>

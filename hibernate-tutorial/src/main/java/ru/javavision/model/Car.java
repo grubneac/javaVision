@@ -1,77 +1,62 @@
 package ru.javavision.model;
 
+import java.util.Set;
 
 public class Car {
 	
 	private int id;
-	private Integer cost;
 	private String mark;
-	
-	
+	private Integer cost;
+	private Set<Engine> engines;
+
 	public Car() {
 		super();
 	}
-	
-	public Car(int id, String mark, Integer cost) {
+
+	public Car(int id, String mark, Integer cost, Set<Engine> engines) {
 		super();
 		this.id = id;
 		this.mark = mark;
 		this.cost = cost;
+		this.engines = engines;
 	}
 
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getMark() {
 		return mark;
 	}
+
 	public void setMark(String mark) {
 		this.mark = mark;
 	}
-	public Integer getcost() {
+
+	public Integer getCost() {
 		return cost;
 	}
+
 	public void setCost(Integer cost) {
 		this.cost = cost;
 	}
+
+	public Set<Engine> getEngines() {
+		return engines;
+	}
+
+	public void setEngines(Set<Engine> engines) {
+		this.engines = engines;
+	}
+
 	@Override
 	public String toString() {
-		return "Car [id=" + id + ", mark=" + mark + ", cost=" + cost + "]";
+		return "Car [id=" + id + ", mark=" + mark + ", cost=" + cost +"]";
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((mark == null) ? 0 : mark.hashCode());
-		result = prime * result + ((cost == null) ? 0 : cost.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Car other = (Car) obj;
-		if (id != other.id)
-			return false;
-		if (mark == null) {
-			if (other.mark != null)
-				return false;
-		} else if (!mark.equals(other.mark))
-			return false;
-		if (cost == null) {
-			if (other.cost != null)
-				return false;
-		} else if (!cost.equals(other.cost))
-			return false;
-		return true;
-	}
+	
 
 }
